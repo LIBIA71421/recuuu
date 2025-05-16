@@ -2,6 +2,9 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+
+    //id("com.google.devtools.ksp")
+    //id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -49,6 +52,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.navigation.compose.android)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -57,7 +61,14 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    // https://mvnrepository.com/artifact/com.google.dagger/dagger
+    implementation("com.google.dagger:dagger:2.50")
 
+// https://mvnrepository.com/artifact/com.google.dagger/hilt-android
+    runtimeOnly("com.google.dagger:hilt-android:2.50")
+
+    //implementation("com.google.dagger:hilt-android:2.50")
+    //ksp("com.google.dagger:hilt-compiler:2.50")
 
 
     implementation(project(":usecases"))
